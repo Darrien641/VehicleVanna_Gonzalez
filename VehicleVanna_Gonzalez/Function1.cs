@@ -28,7 +28,7 @@ namespace VehicleVanna_Gonzalez
             await VehicleOrders.AddAsync(Order);
             log.LogInformation($"Buyer: {Order.FirstName} {Order.LastName} {Order.VehicleType_}");
 
-            string responseMessage = $"Buyer {Order.FirstName} {Order.LastName} ";
+            string responseMessage = $"Buyer {Order.FirstName} {Order.LastName} ({}) ";
 
             return new OkObjectResult(responseMessage);
         }

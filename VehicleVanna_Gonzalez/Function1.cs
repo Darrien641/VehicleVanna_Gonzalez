@@ -28,12 +28,12 @@ namespace VehicleVanna_Gonzalez
             await VehicleOrders.AddAsync(Order);
             discountPrice = Order.ListPrice * .085m;
             log.LogInformation($"Buyer {Order.FirstName} {Order.LastName} ({Order.Email})" +
-                $" purchased a {Order.Year} {Order.Year} {Order.Make} {Order.VehicleType_.ToString()}" +
-                $"with a list price of {Order.ListPrice}. With discount applied, purchase price is {(Order.ListPrice - discountPrice)}");
+                $" purchased a {Order.Year} {Order.Make} {Order.Model} {Order.VehicleType_.ToString()}\n" +
+                $" with a list price of {Order.ListPrice}. With discount applied, purchase price is {(Order.ListPrice - discountPrice)}");
 
             string responseMessage = $"Buyer {Order.FirstName} {Order.LastName} ({Order.Email})" +
                 $" purchased a {Order.Year} {Order.Year} {Order.Make} {Order.VehicleType_.ToString()}" +
-                $"with a list price of {Order.ListPrice}. With discount applied, purchase price is {(Order.ListPrice - discountPrice)}";
+                $"with a list price of ${Order.ListPrice}. With discount applied, purchase price is ${(Order.ListPrice - discountPrice)}";
 
             return new OkObjectResult(responseMessage);
         }

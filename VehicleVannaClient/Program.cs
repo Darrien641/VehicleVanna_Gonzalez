@@ -9,7 +9,7 @@ namespace VehicleVannaClient
             Menu menu = new Menu();
             menu.AddMenuItems();
             Vehicle vehicle;
-            double ListPrice;
+            decimal ListPrice;
             string FirstName;
             string LastName;
             string Make;

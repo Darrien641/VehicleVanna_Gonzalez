@@ -7,7 +7,7 @@ namespace VehicleVannaClient
     public class Vehicle
     {
         public Vehicle(string make, string model, int year,
-             double listPrice, string firstName, string lastName, string email, VehicleType type)
+             decimal listPrice, string firstName, string lastName, string email, VehicleType type)
         {
             Make = make;
             Model = model;
@@ -30,7 +30,7 @@ namespace VehicleVannaClient
         public string Make { get; set; }
         public string Model { get; set; }
         public int Year { get; set; }
-        public double ListPrice { get; set; }
+        public decimal ListPrice { get; set; }
         public VehicleType VehicleType_ { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

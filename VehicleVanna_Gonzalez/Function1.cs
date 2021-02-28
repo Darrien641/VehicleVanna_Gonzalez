@@ -19,16 +19,21 @@ namespace VehicleVanna_Gonzalez
             ILogger log)
 
         {
-
+            decimal discountPrice;
             log.LogInformation("C# HTTP trigger function processed a request.");
 
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             var Order = JsonConvert.DeserializeObject<Vehicle>(requestBody);
             await VehicleOrders.AddAsync(Order);
-            log.LogInformation($"Buyer: {Order.FirstName} {Order.LastName} {Order.VehicleType_}");
+            discountPrice = Order.ListPrice * .085m;
+            log.LogInformation($"Buyer {Order.FirstName} {Order.LastName} ({Order.Email})" +
+                $" purchased a {Order.Year} {Order.Year} {Order.Make} {Order.VehicleType_.ToString()}" +
+                $"with a list price of {Order.ListPrice}. With discount applied, purchase price is {(Order.ListPrice - discountPrice)}");
 
-            string responseMessage = $"Buyer {Order.FirstName} {Order.LastName} ({}) ";
+            string responseMessage = $"Buyer {Order.FirstName} {Order.LastName} ({Order.Email})" +
+                $" purchased a {Order.Year} {Order.Year} {Order.Make} {Order.VehicleType_.ToString()}" +
+                $"with a list price of {Order.ListPrice}. With discount applied, purchase price is {(Order.ListPrice - discountPrice)}";
 
             return new OkObjectResult(responseMessage);
         }

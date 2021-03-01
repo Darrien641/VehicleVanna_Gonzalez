@@ -37,7 +37,7 @@ namespace VehicleVannaClient
             Vehicle.VehicleType VehicleEnum = VehicleData.GetVehicleType(Type);
             ListPrice = VehicleData.GetPrice(VehicleEnum);
             vehicle = new Vehicle(Make, Model, Convert.ToInt32(Year), ListPrice, FirstName, LastName, Email, VehicleEnum);
-            Console.WriteLine(VehicleEnum.ToString());
+            //Console.WriteLine(VehicleEnum.ToString());
             await HttpTrigger.HttpResponse(vehicle);
 
         }
